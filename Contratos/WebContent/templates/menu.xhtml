@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+
+ <h:form>
+	 	<h:panelGrid columns="1">
+	 		<h:commandLink value="Home" action="/index" />
+	 		<h:commandLink value="Tabelas com Estilos" action="/tabelas/tabelasComEstiloCSS" />
+	 		<h:commandLink value="Tabela editavel" action="/tabelas/tabelaEditavel" />
+	 		<h:commandLink value="Grupos" action="#{controleGrupo.listar()}"  />
+			<h:commandLink value="Funcionarios" action="#{controleFuncionario.listar()}"  />
+			<h:commandLink value="Projetos" action="#{controleProjeto.listar()}"  />
+			<h:commandLink value="Setores" action="#{controleSetor.listar()}"  />
+	 	</h:panelGrid>
+	 </h:form> 
+ 
+</html>

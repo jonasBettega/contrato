@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+
+<h:head><title>Listagem de Projetos</title></h:head> 
+<h:body> 
+	<h:form>
+		<h:commandLink action="/index?faces-redirect=true"  value="Inicio" />
+		<h:messages />
+		<h:dataTable value="#{controleProjeto.dao.ListarTodos()}" var="obj"
+			frame="box" rules="all" cellpadding="3">
+			<f:facet name="header">
+				<h:commandButton action="#{controleProjeto.novo()}"
+					 value="Novo registro" />
+			</f:facet>
+			<h:column>
+				<f:facet name="header">ID</f:facet>
+				#{obj.id}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Nome</f:facet>
+				#{obj.nome}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Inicio</f:facet>
+				<h:outputText value="#{obj.inicio}">
+					<f:converter converterId="converterCalendar"/>
+				</h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Fim</f:facet>
+				<h:outputText value="#{obj.fim}">
+					<f:converter converterId="converterCalendar"/>
+				</h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Setor</f:facet>
+				#{obj.setor.nome}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Ativo</f:facet>
+				<h:outputText value="#{obj.ativo == true ? 'Sim' : 'Não'}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Alterar</f:facet>
+				<h:commandLink action="#{controleProjeto.alterar(obj)}" value="Alterar"  />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Excluir</f:facet>
+				<h:commandLink action="#{controleProjeto.excluir(obj)}" value="Excluir"
+				onclick="if (!confirm('Confirma exclusão do objeto'))) return false"
+			    />				
+			</h:column>
+		</h:dataTable>
+	</h:form>
+</h:body> 
+</html>

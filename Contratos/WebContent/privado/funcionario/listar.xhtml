@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Listagem de funcionarios</title>
+</h:head>
+<h:body>
+	<h:form>
+		<h:messages />
+		<h:dataTable value="#{controleFuncionario.dao.listTodos()}"
+			var="obj" frame="box" rules="all" cellpadding="3">
+			<f:facet name="header">
+				<h:commandButton value="Novo registro"
+					action="#{controleFuncionario.novo()}" />
+			</f:facet>
+			<h:column>
+				<f:facet name="header">ID</f:facet>
+				#{objeto.id}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Nome</f:facet>
+				#{objeto.nome}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Grupo</f:facet>
+				#{objeto.grupo.nome}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Setor</f:facet>
+				#{objeto.setor.nome}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Foto</f:facet>
+				<p:graphicImage value="#{controleFuncionario.imagemDinamica}"
+					style="width:60px;height:60px" cache="false">
+					<f:param name="id_imagem" value="#{objeto.id}" />
+				</p:graphicImage>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Alterar</f:facet>
+				<h:commandLink value="Alterar"
+					action="#{controleFuncionario.alterar(obj)}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Excluir</f:facet>
+				<h:commandLink value="Excluir"
+					action="#{controleFuncionario.excluir(obj)}"
+					onclick="if (!confirm('Confirma a exclusão do funcionario? ')) return false" />
+			</h:column>
+		</h:dataTable>
+	</h:form>
+</h:body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+
+<h:head><title>Edição de grupos</title></h:head> 
+<h:body> 
+	<h:form>
+		<h:messages />
+		<h:commandLink action="/index?faces-redirect=true" value="voltar" /><br/>
+		<h:panelGrid columns="2">
+			<f:facet name="header">Edição de grupos</f:facet>
+			<f:facet name="footer">
+				<div align="center">
+					<h:commandButton value="Cancelar" 
+						action="#{controleGrupo.cancelar()}" />
+					<h:commandButton value="Gravar"
+						action="#{controleGrupo.gravar()}"/>	
+				</div>
+			</f:facet>
+			<h:outputLabel value="ID" />
+			<h:inputText value="#{controleGrupo.objeto.id}"  readonly="true"/>
+			<h:outputLabel value="Nome" />
+			<h:inputText value="#{controleGrupo.objeto.nome}" maxlength="40"
+				size="40" />
+		</h:panelGrid>
+	</h:form>
+</h:body> 
+</html>

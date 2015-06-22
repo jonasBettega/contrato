@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+
+
+<h:head><title>Listagem de grupos</title></h:head> 
+<h:body> 
+	<h:form>
+		<h:messages />
+		<h:commandLink action="/index?faces-redirect=true" value="Inicio" /><br/>
+		<h:commandLink value="Novo registro" action="#{controleGrupo.novo()}"  />
+		<h:panelGrid columns="6">
+			<h:selectOneMenu value="#{controleGrupo.dao.ordem}">
+				<f:selectItem itemLabel="ID" itemValue="id"/>
+				<f:selectItem itemLabel="Nome" itemValue="nome"/>
+				<f:ajax execute="@form" render="@form"/>
+			</h:selectOneMenu>
+			<h:outputLabel value="Filtro" />
+			<h:inputText value="#{controleGrupo.dao.filtro}">
+				<f:ajax execute="@form" render="@form" event="keyup"/>
+			</h:inputText>
+			<h:outputLabel value="Maximo de objetos" />
+			<h:inputText value="#{controleGrupo.dao.maximosObjetos}" size="3">
+				<f:ajax execute="@form" render="@form" event="keyup"/>
+			</h:inputText>
+		</h:panelGrid>
+		<h:dataTable value="#{controleGrupo.dao.listar()}" var="obj" 
+			frame="box" rules="all" cellpadding="3">
+			<f:facet name="header">Listagem de grupos</f:facet>
+			<f:facet name="footer">
+				<div align="center">
+					<h:outputLabel value="#{controleGrupo.dao.messagemNavegacao}" />
+					<h:commandButton value="Primeiro" 
+					action="#{controleGrupo.dao.primeiro()}"  >
+						<f:ajax execute="@form" render="@form"/>
+					</h:commandButton>
+					<h:commandButton value="Anterior" 
+					action="#{controleGrupo.dao.anterior()}"  >
+						<f:ajax execute="@form" render="@form"/>
+					</h:commandButton>
+					<h:commandButton value="Proximo" 
+					action="#{controleGrupo.dao.proximo()}"  >
+						<f:ajax execute="@form" render="@form"/>
+					</h:commandButton>
+					<h:commandButton value="Ultimo" 
+					action="#{controleGrupo.dao.ultimo()}"  >
+						<f:ajax execute="@form" render="@form"/>
+					</h:commandButton>
+				</div>
+			</f:facet>
+			<h:column>
+				<f:facet name="header">ID</f:facet>
+				#{obj.id}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Nome</f:facet>
+				#{obj.nome}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Alterar</f:facet>
+				<h:commandLink value="Alterar" 
+				action="#{controleGrupo.alterar(obj)}"  />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Excluir</f:facet>
+				<h:commandLink value="Excluir" 
+				action="#{controleGrupo.excluir(obj)}" 
+				onclick="if (!confirm('Confirma a exclusão do grupo?')) return false" />
+			</h:column>
+		
+		</h:dataTable>
+		
+	</h:form>
+</h:body> 
+</html>

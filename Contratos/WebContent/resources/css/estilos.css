@@ -1,0 +1,107 @@
+.tituloTabela{
+	font-size: 0.95;
+	font-style: italic;
+}
+
+.tabela{
+	border : thin solid black;
+	background: lavender;
+}
+
+.tabelaCabecalho{
+	text-align: center;
+	font-style: italic;
+	color: snow;
+	background: teal;
+}
+
+.tabelaRodape{
+	text-align: center;
+	color: snow;
+	background: teal;
+}
+
+.colunaIDCabecalho{
+	font-style: italic;
+	text-align: left;
+}
+
+.colunaIDRodape{
+	font-style: italic;
+	text-align: left;
+	font-size: 0.60em;
+}
+
+.colunaCabecalho{
+	font-style: bold;
+	text-align: center;
+}
+
+.colunaRodape{
+	font-style: bold;
+	text-align: center;
+	font-size: 0.60em;
+}
+
+.primeiraColuna{
+	text-align: center;
+	background: mediumturquoise;
+}
+
+.segundaColuna{
+	text-align: center;
+	background: powderblue;
+}
+
+.terceiraColuna{
+	text-align: center;
+	background: paleturquoise;
+}
+
+.primeiraLinha{
+	text-align: center;
+	background: mediumturquoise;
+}
+
+.segundaLinha{
+	text-align: center;
+	background: powderblue;
+}
+
+.titulo {
+	font-size: 1.4em;
+	font-style: italic;
+	font-family: Palatino;
+	text-align: center;	
+}
+
+#cabecalho {
+	padding: 20px;
+	height: 30px;
+	margin-bottom: 10px;
+	background: #dddddd;
+	border: 1px solid darkGray;
+}
+
+#barraEsquerda {
+	border: thin solid lightGray;
+	padding: 5px;
+	width: 150px;
+	background: #eeeeee;
+}
+
+#conteudo {
+	padding: 5px;
+	border: thin solid lightGray;
+	background: #fefefe;
+	position: absolute;
+	right: 8px;
+	left: 180px;
+	height: 400px;
+	top: 90px;
+}
+
+
+
+
+
