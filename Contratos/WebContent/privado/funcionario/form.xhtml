@@ -54,10 +54,9 @@
 				maxlength="10" redisplay="true" />
 			<h:outputLabel value="Grupo" />
 			<h:selectOneMenu value="#{controleFuncionario.objeto.grupo}"
-				converter="#{controleFuncionario.converterGrupo}">
-				<f:selectItem itemLabel="Selecione um grupo"
-					noSelectionOption="true" />
-				<f:selectItems value="#{controleFuncionario.daoGrupo.listarTodos()}" />
+			converter="#{controleFuncionario.converterGrupo}">
+			<f:selectItem itemLabel="Selecione um grupo" noSelectionOption="true"/>
+			<f:selectItem value="#{controleFuncionario.daoGrupo.listar()}"/>
 			</h:selectOneMenu>
 			<h:outputLabel value="Setor" />
 			<h:selectOneMenu value="#{controleFuncionario.objeto.setor}"

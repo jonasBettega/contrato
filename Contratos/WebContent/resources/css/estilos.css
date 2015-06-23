@@ -79,29 +79,28 @@
 	padding: 20px;
 	height: 30px;
 	margin-bottom: 10px;
-	background: #dddddd;
+	background: #006666;
+	
 	border: 1px solid darkGray;
+	
+	
 }
 
 #barraEsquerda {
 	border: thin solid lightGray;
-	padding: 5px;
-	width: 150px;
-	background: #eeeeee;
+	padding: 110px;
+	width: 40px;
+	background: #6699CC;
+	border: 1px solid darkGray
 }
 
 #conteudo {
 	padding: 5px;
 	border: thin solid lightGray;
-	background: #fefefe;
+	background: #9999FF;
 	position: absolute;
 	right: 8px;
-	left: 180px;
+	left: 280px;
 	height: 400px;
 	top: 90px;
 }
-
-
-
-
-
